@@ -17,7 +17,7 @@ format:
 author: 
   - name: Florian Oswald
     orcid: 0000-0001-7737-2038
-    email: florian.oswald@unito.it, ejdataeditor@gmail.com
+    email: ejdataeditor@gmail.com
     affiliations: Unito, Collegio Carlo Alberto, SciencesPo Paris, RES Data Editor
 subtitle: "[Workshop at IEA 2025 Belfast](https://RES-reproducibility.github.io/IEA2025/)"
 date: last-modified
