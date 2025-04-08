@@ -9,3 +9,4 @@ where the 10 commits correspond to the *10 steps* of the workshop.
 ## How to build the slides
 
 * Get [quarto](https://quarto.org/docs/get-started/) and compile.
+* Deployment uses `quarto publish gh-pages` with local build - no CI needed.
