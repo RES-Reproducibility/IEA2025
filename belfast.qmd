@@ -32,7 +32,10 @@ date-format: "D MMMM, YYYY"
 3. Some Reproducibility Best Practices.
 4. Let's start a reproducible research project!
 
-## Managing Expectations: What Do We Need from You?
+# What Is Required From Authors? 🫵 {background-color="#40666e"}
+
+
+## What is Required from Authors?
 
 * Most (all?) journals require authors to share code and data.
 * Only 17 (!) journals endorse the [Data and Code Availability Standard](https://datacodestandard.org) and enforce it via a Data Editor.
@@ -308,7 +311,7 @@ How to write reproducible code?
 
 ::: {.fragment}
 1. Provide a run script which...*runs everything*. Run it often!
-2. [No]{.bg style="--col: #e64173"} copy and paste in your pipeline! Write results to disk.
+2. [No]{.bg style="--col: #e64173"} copy and paste in your pipeline! Write results to computer's storage.
 3. Clear instructions
 4. Provide a clear way to create the required environment (library installation etc)
 :::
@@ -413,19 +416,138 @@ Your code will yield identical results on a different computer **only if** certa
 
 ::::
 
+# Reproducible Code 💻 <br/> Is Our Daily Bread 🍞 {background-color="#40666e"}
 
 
+## 🧪 Reproducibility: Bread Baking vs. Code Execution  
+
+
+
+::: {style="font-size: 70%;"}
+
+| 🍞 **Baking Bread (Chemical Experiment)**         | 💻 **Running a Script (Computational Experiment)**        |
+|--------------------------------------------------|------------------------------------------------------------|
+| **Ingredients**                                  | **Dependencies**                                           |
+| - 500g flour                                     | - Python 3.10                                              |
+| - 300ml water                                    | - `numpy==1.24.0`                                          |
+| - 7g dry yeast                                   | - `pandas==1.5.3`                                          |
+| - 10g salt                                       | - `scikit-learn` *(no version specified)*                  |
+
+
+:::
+
+## 🧪 Reproducibility: Bread Baking vs. Code Execution  
+
+
+::: {style="font-size: 70%;"}
+
+| 🍞 **Baking Bread (Chemical Experiment)**         | 💻 **Running a Script (Computational Experiment)**         |
+|--------------------------------------------------|------------------------------------------------------------|
+| **Ingredients**                                  | **Dependencies**                                           |
+| - 500g flour                                     | - Python 3.10                                              |
+| - 300ml water                                    | - `numpy==1.24.0`                                          |
+| - 7g dry yeast                                   | - `pandas==1.5.3`                                          |
+| - 10g salt                                       | - `scikit-learn` *(no version specified)*                 |
+| **Instructions**                                 | **Instructions**                                           |
+| 1. Mix ingredients                               | 1. Clone the repository from GitHub                        |
+| 2. Knead dough                                   | 2. Create and activate a virtual environment               |
+| 3. Let rise 1 hour at room temperature           | 3. Install dependencies from `requirements.txt`            |
+| 4. Bake at 220°C for 30 minutes                  | 4. Run `python train_model.py` with default config         |
+
+
+:::
+
+## 🧪 Reproducibility: Bread Baking vs. Code Execution  
+
+
+::: {style="font-size: 70%;"}
+
+| 🍞 **Baking Bread (Chemical Experiment)**         | 💻 **Running a Script (Computational Experiment)**         |
+|--------------------------------------------------|------------------------------------------------------------|
+| **Ingredients**                                  | **Dependencies**                                           |
+| - 500g flour                                     | - Python 3.10                                              |
+| - 300ml water                                    | - `numpy==1.24.0`                                          |
+| - 7g dry yeast                                   | - `pandas==1.5.3`                                          |
+| - 10g salt                                       | - `scikit-learn` *(no version specified)*                 |
+| **Instructions**                                 | **Instructions**                                           |
+| 1. Mix ingredients                               | 1. Clone the repository from GitHub                        |
+| 2. Knead dough                                   | 2. Create and activate a virtual environment               |
+| 3. Let rise 1 hour at room temperature           | 3. Install dependencies from `requirements.txt`            |
+| 4. Bake at 220°C for 30 minutes                  | 4. Run `python train_model.py` with default config         |
+| **Expected Outcome**                             | **Expected Outcome**                                       |
+| - Well-risen, airy loaf of bread                 | - Consistent training accuracy and saved model             |
+
+:::
+
+## ⚠️ What Could Possibly Go Wrong?  
+
+::: {style="font-size: 70%;"}
+
+
+| 🍞 **Bread Baking (Chemical Experiment)**               | 💻 **Running a Script (Computational Experiment)**               |
+|---------------------------------------------------------|------------------------------------------------------------------|
+| **1. Yeast Inactivation**                               | **1. Library Version Mismatch**                                 |
+| Water too hot (e.g., 60°C) kills the yeast. No rise.    | `scikit-learn` was updated → `train_test_split()` behaves differently, causing changes in results. |
+
+:::
+
+## ⚠️ What Could Possibly Go Wrong?  
+
+::: {style="font-size: 70%;"}
+
+
+| 🍞 **Bread Baking (Chemical Experiment)**               | 💻 **Running a Script (Computational Experiment)**               |
+|---------------------------------------------------------|------------------------------------------------------------------|
+| **1. Yeast Inactivation**                               | **1. Library Version Mismatch**                                 |
+| Water too hot (e.g., 60°C) kills the yeast. No rise.    | `scikit-learn` was updated → `train_test_split()` behaves differently, causing changes in results. |
+| **2. Cold Proofing**                                    | **2. Different OS / File System**                               |
+| Room too cold (e.g., 15°C) → dough rises too slowly.    | Path handling fails on Windows vs. Linux (`\` vs. `/`), or line endings cause script errors. |
+
+:::
+## ⚠️ What Could Possibly Go Wrong?  
+
+::: {style="font-size: 70%;"}
+
+
+| 🍞 **Bread Baking (Chemical Experiment)**               | 💻 **Running a Script (Computational Experiment)**               |
+|---------------------------------------------------------|------------------------------------------------------------------|
+| **1. Yeast Inactivation**                               | **1. Library Version Mismatch**                                 |
+| Water too hot (e.g., 60°C) kills the yeast. No rise.    | `scikit-learn` was updated → `train_test_split()` behaves differently, causing changes in results. |
+| **2. Cold Proofing**                                    | **2. Different OS / File System**                               |
+| Room too cold (e.g., 15°C) → dough rises too slowly.    | Path handling fails on Windows vs. Linux (`\` vs. `/`), or line endings cause script errors. |
+| **3. High Altitude Baking**                             | **3. Hardware Differences (e.g., CPU vs. GPU)**                 |
+| Lower pressure expands gas too fast; loaf collapses.    | Numerical precision differs → inconsistent model outputs.        |
+
+:::
+## ⚠️ What Could Possibly Go Wrong?  
+
+::: {style="font-size: 70%;"}
+
+
+| 🍞 **Bread Baking (Chemical Experiment)**               | 💻 **Running a Script (Computational Experiment)**               |
+|---------------------------------------------------------|------------------------------------------------------------------|
+| **1. Yeast Inactivation**                               | **1. Library Version Mismatch**                                 |
+| Water too hot (e.g., 60°C) kills the yeast. No rise.    | `scikit-learn` was updated → `train_test_split()` behaves differently, causing changes in results. |
+| **2. Cold Proofing**                                    | **2. Different OS / File System**                               |
+| Room too cold (e.g., 15°C) → dough rises too slowly.    | Path handling fails on Windows vs. Linux (`\` vs. `/`), or line endings cause script errors. |
+| **3. High Altitude Baking**                             | **3. Hardware Differences (e.g., CPU vs. GPU)**                 |
+| Lower pressure expands gas too fast; loaf collapses.    | Numerical precision differs → inconsistent model outputs.        |
+| **4. Too Much Salt**                                    | **4. Missing or Incorrect Environment Variable**               |
+| Excess salt suppresses yeast → poor fermentation.       | `DATA_DIR` not set → script fails or loads wrong input silently. |
+| **Result: Flat, dense, or failed bread**                | **Result: Different outputs, errors, or failed experiments**     |
+
+:::
 
 ## Reproducible Code
 
 ### Safe Environments for Running Your Code
 
-* At a minimum, you list your exact computing environment:
+* At a minimum, your `README` lists the exact computing environment:
 * OS, software and which version used (`R 4.1`, `stata 17/MP`, `matlab 2023b`, `GNU Fortran (Homebrew GCC 13.2.0)`)
 
 * Libraries and which exact version used (`ggplot2 1.3.4`, `outreg 2`, `numpy 1.26.4`, `boost 1.8.3` )
 
-* Stata: install all libraries [into]{.bg style="--col: #e64173"} you replication package.
+* Stata: install all libraries [into]{.bg style="--col: #e64173"} your replication package.
 
 👉 Virtual Environments can help.
 
@@ -534,7 +656,7 @@ Such mechanisms can reduce version conflicts amongst your dependencies. To the e
 ## Output
 
 
-* Write both tables and figures to disk. 
+* Write both tables and figures to local storage (don't just display on the console!)
 * The gold standard: include this table in your readme.
 
 :::{.smaller}
@@ -551,7 +673,7 @@ Such mechanisms can reduce version conflicts amongst your dependencies. To the e
 
 * keep a full pipeline intact at all times: `run_all()`
 * have a dedicated output folder *which you delete frequently*
-* version output: during revisions, create separate locations for outout, `rev1`, `rev2` etc, so you know exactly what version of code made which output.
+* version output: during revisions, create separate locations for output, `rev1`, `rev2` etc, so you know exactly what version of code made which output.
 
 
 
