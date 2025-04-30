@@ -349,6 +349,10 @@ In general, take all necessary steps to ensure cross-platform compatibility of y
 _file paths are such low-hanging fruit 🍇..._
 :::
 
+::: {.fragment}
+_don't build tables by hand_
+:::
+
 :::
 :::
 
@@ -366,8 +370,6 @@ Sys.setenv(PACKAGE_ROOT="/Users/floswald/Downloads/your_package")
 file.path(Sys.getenv("PACKAGE_ROOT"), "data", "wages.csv")
 ```
 
-<br>
-
 ```stata
 # in my stata, I do
 global PACKAGE_ROOT "/Users/floswald/Downloads/your_package"
@@ -377,6 +379,63 @@ use "$PACKAGE_ROOT/data/wages.dta"
 ```
 
 [Always]{.bg style="--col: #e64173"} use forward slashes on Stata `/`, even on a windows machine!
+
+## Reproducible Code 
+
+### Tables
+
+
+:::: {.columns}
+
+::: {.column width=45%}
+
+
+#### R
+
+* [https://modelsummary.com](https://modelsummary.com)
+* [qt + quarto](https://jeremydata.quarto.pub/gt-quarto-demo/#/lets-build-a-gt-table)
+* All packages [here](https://modelsummary.com/vignettes/appearance.html)
+
+
+
+#### julia
+
+* [RegressionTables.jl](https://github.com/jmboehm/RegressionTables.jl)
+* [LaTeXTabulars.jl](https://github.com/tpapp/LaTeXTabulars.jl)
+
+
+
+:::
+
+
+::: {.column width=1%}
+:::
+
+::: {.column width=45%}
+
+#### stata
+
+* [outreg2](https://www.princeton.edu/~otorres/Outreg2.pdf)
+* etc
+
+
+
+
+#### In General
+
+A little [mustache](https://mustache.github.io) templating goes a long way...
+
+```python
+insert {{ x }} here
+```
+
+
+
+
+:::
+
+
+::::
 
 
 ## Reproducible Code
