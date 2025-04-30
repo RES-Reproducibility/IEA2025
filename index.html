@@ -209,7 +209,7 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
     </div>
 </div>
 
-  <p class="date">29 April, 2025</p>
+  <p class="date">30 April, 2025</p>
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
@@ -547,6 +547,9 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
 <div class="fragment">
 <p><em>file paths are such low-hanging fruit 🍇…</em></p>
 </div>
+<div class="fragment">
+<p><em>don’t build tables by hand</em></p>
+</div>
 </div></div>
 </section>
 <section id="reproducible-code-3" class="slide level2">
@@ -558,7 +561,6 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
 <span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># your package uses:</span></span>
 <span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">file.path</span>(<span class="fu">Sys.getenv</span>(<span class="st">"PACKAGE_ROOT"</span>), <span class="st">"data"</span>, <span class="st">"wages.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a># <span class="kw">in</span> my stata, <span class="fu">I</span> <span class="kw">do</span></span>
 <span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> PACKAGE_ROOT <span class="st">"/Users/floswald/Downloads/your_package"</span></span>
 <span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -567,6 +569,35 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
 <p><span class="bg" style="--col: #e64173">Always</span> use forward slashes on Stata <code>/</code>, even on a windows machine!</p>
 </section>
 <section id="reproducible-code-4" class="slide level2">
+<h2>Reproducible Code</h2>
+<h3 id="tables">Tables</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h4 id="r">R</h4>
+<ul>
+<li><a href="https://modelsummary.com">https://modelsummary.com</a></li>
+<li><a href="https://jeremydata.quarto.pub/gt-quarto-demo/#/lets-build-a-gt-table">qt + quarto</a></li>
+<li>All packages <a href="https://modelsummary.com/vignettes/appearance.html">here</a></li>
+</ul>
+<h4 id="julia">julia</h4>
+<ul>
+<li><a href="https://github.com/jmboehm/RegressionTables.jl">RegressionTables.jl</a></li>
+<li><a href="https://github.com/tpapp/LaTeXTabulars.jl">LaTeXTabulars.jl</a></li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:45%;">
+<h4 id="stata">stata</h4>
+<ul>
+<li><a href="https://www.princeton.edu/~otorres/Outreg2.pdf">outreg2</a></li>
+<li>etc</li>
+</ul>
+<h4 id="in-general">In General</h4>
+<p>A little <a href="https://mustache.github.io">mustache</a> templating goes a long way…</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a>insert {{ x }} here</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="reproducible-code-5" class="slide level2">
 <h2>Reproducible Code</h2>
 <h3 id="safe-environments-for-running-your-code">Safe Environments for Running Your Code</h3>
 <div class="columns">
@@ -942,7 +973,7 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
 </table>
 </div>
 </section>
-<section id="reproducible-code-5" class="slide level2">
+<section id="reproducible-code-6" class="slide level2">
 <h2>Reproducible Code</h2>
 <h3 id="safe-environments-for-running-your-code-1">Safe Environments for Running Your Code</h3>
 <ul>
@@ -953,34 +984,34 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
 </ul>
 <p>👉 Virtual Environments can help.</p>
 </section>
-<section id="reproducible-code-6" class="slide level2">
+<section id="reproducible-code-7" class="slide level2">
 <h2>Reproducible Code</h2>
 <h3 id="provide-a-virtual-environment">Provide a Virtual Environment</h3>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p><code>python</code> via anaconda:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a>conda create <span class="op">-</span>n py27 python<span class="op">=</span><span class="fl">2.7</span> numpy<span class="op">=</span><span class="fl">1.15.4</span> matplotlib</span>
-<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>conda activate py27</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>conda create <span class="op">-</span>n py27 python<span class="op">=</span><span class="fl">2.7</span> numpy<span class="op">=</span><span class="fl">1.15.4</span> matplotlib</span>
+<span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a>conda activate py27</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are other virtual env managers in python</p>
 <p><code>R</code> via <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># in your existing project:</span></span>
-<span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>() <span class="co"># creates local library</span></span>
-<span id="cb6-3"><a href="" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>() <span class="co"># commit</span></span>
-<span id="cb6-4"><a href="" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()  <span class="co"># checkout</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># in your existing project:</span></span>
+<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>() <span class="co"># creates local library</span></span>
+<span id="cb7-3"><a href="" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>() <span class="co"># commit</span></span>
+<span id="cb7-4"><a href="" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()  <span class="co"># checkout</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:1%;">
 
 </div><div class="column" style="width:45%;">
 <p><code>julia</code> built-in <code>Pkg</code> manager:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>(<span class="pp">@v1</span><span class="fl">.10</span>) pkg<span class="op">&gt;</span> activate .</span>
-<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>  Activating <span class="kw">new</span> project at <span class="ss">`~/my-project`</span></span>
-<span id="cb7-3"><a href="" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-4"><a href="" aria-hidden="true" tabindex="-1"></a>(my<span class="op">-</span>project) pkg<span class="op">&gt;</span> add DataFrames GLM</span>
-<span id="cb7-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># created 2 files in `~/my-project`</span></span>
-<span id="cb7-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># tracking all dependencies</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>(<span class="pp">@v1</span><span class="fl">.10</span>) pkg<span class="op">&gt;</span> activate .</span>
+<span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a>  Activating <span class="kw">new</span> project at <span class="ss">`~/my-project`</span></span>
+<span id="cb8-3"><a href="" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-4"><a href="" aria-hidden="true" tabindex="-1"></a>(my<span class="op">-</span>project) pkg<span class="op">&gt;</span> add DataFrames GLM</span>
+<span id="cb8-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># created 2 files in `~/my-project`</span></span>
+<span id="cb8-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># tracking all dependencies</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Docker</code> 🐳 <a href="https://aeadataeditor.github.io/posts/2021-11-16-docker">container</a>. This provides a fully specified virtual machine (i.e.&nbsp;a dedicated computer for your project)</p>
 </div></div>
 </section>
-<section id="reproducible-code-7" class="slide level2">
+<section id="reproducible-code-8" class="slide level2">
 <h2>Reproducible Code</h2>
 <h3 id="stata-virtual-environment">Stata Virtual Environment</h3>
 <ol type="1">
@@ -992,7 +1023,7 @@ Florian Oswald <a href="https://orcid.org/0000-0001-7737-2038" class="quarto-tit
 <li>We will do this later on!</li>
 </ol>
 </section>
-<section id="reproducible-code-8" class="slide level2">
+<section id="reproducible-code-9" class="slide level2">
 <h2>Reproducible code</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
